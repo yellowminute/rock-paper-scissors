@@ -1,27 +1,28 @@
 function getComputerChoice() {                                          //Generate a random choice by getting random element in choices array
-    const choices = ['rock', 'paper', 'scissors'];
+    const choices = ['Rock', 'Paper', 'Scissors'];
     let choice = choices[Math.floor(Math.random()*choices.length)];     
     return choice;
 } 
 
 function playRound (playerSelection, computerSelection) {               //Play a round by comparing selections and based on them declare a winner
-    playerSelection = playerSelection.toLowerCase();
+    playerSelection = playerSelection[0].toUpperCase() + playerSelection.slice(1).toLowerCase();
+    let result;
     console.log(playerSelection);
     console.log(computerSelection);
     if( playerSelection === computerSelection ) {
-        return "It's a tie!";
+        result = "It's a tie!";
     }
-    else if ( ( playerSelection === 'rock' && computerSelection === 'scissors' ) ||
-              ( playerSelection === 'paper' && computerSelection === 'rock' ) ||
-              ( playerSelection === 'scissors' && computerSelection === 'paper' ) ) {
-            return `You win! ${playerSelection} beats ${computerSelection}`;
+    else if ( ( playerSelection === 'Rock' && computerSelection === 'Scissors' ) ||
+              ( playerSelection === 'Paper' && computerSelection === 'Rock' ) ||
+              ( playerSelection === 'Scissors' && computerSelection === 'Paper' ) ) {
+            result = `You win! ${playerSelection} beats ${computerSelection}`;
     }
     else {
-        return `You lose! ${computerSelection} beats ${playerSelection}`;
+        result = `You lose! ${computerSelection} beats ${playerSelection}`;
     }
-
+    return result;
 }
 
-const playerSelection = 'ROck';
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+playerSelection = 'scissors';
+computerSelection = getComputerChoice();
+console.log(playRound(playerSelection,computerSelection))
