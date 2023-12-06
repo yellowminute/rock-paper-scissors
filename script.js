@@ -10,20 +10,36 @@ function playRound (playerSelection, computerSelection) {                       
     console.log(`Player: ${playerSelection}`);
     console.log(`Computer: ${computerSelection}`);
     if( playerSelection === computerSelection ) {
-       console.log("It's a tie!");  
+       console.log("It's a tie! Play again!");  
        result = playRound(prompt("It's a draw, new pick?"), getComputerChoice());                   //If a draw is played, repeat the round
     }
     else if ( ( playerSelection === 'Rock' && computerSelection === 'Scissors' ) ||
               ( playerSelection === 'Paper' && computerSelection === 'Rock' ) ||
               ( playerSelection === 'Scissors' && computerSelection === 'Paper' ) ) {
             result = `You win! ${playerSelection} beats ${computerSelection}`;
+            playerScore++;
     }
     else {
         result = `You lose! ${computerSelection} beats ${playerSelection}`;
+        computerScore++;
     }
     return result;
 }
+let playerScore = 0;
+let computerScore = 0;
 
-playerSelection = 'scissors';
-computerSelection = getComputerChoice();
-console.log(playRound(playerSelection,computerSelection))
+function game() {                                                                                   //Play a 5 round game with round and game outcome
+    for(i = 0; i < 5; i++){
+        playerSelection = prompt('Your pick?');
+        computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection,computerSelection));
+    }
+    if(playerScore > computerScore){
+        console.log(`PlayerScore: ${playerScore}\nComputerScore: ${computerScore}\nYou won the game!!!`);
+    }
+    else{
+        console.log(`PlayerScore: ${playerScore}\nComputerScore: ${computerScore}\nYou lost the game!!!`)
+    }
+}
+
+game();
