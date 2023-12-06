@@ -1,17 +1,17 @@
-function getComputerChoice() {                                          //Generate a random choice by getting random element in choices array
+function getComputerChoice() {                                                                      //Generate a random choice by getting random element in choices array
     const choices = ['Rock', 'Paper', 'Scissors'];
     let choice = choices[Math.floor(Math.random()*choices.length)];     
     return choice;
 } 
 
-function playRound (playerSelection, computerSelection) {               //Play a round by comparing selections and based on them declare a winner
+function playRound (playerSelection, computerSelection) {                                           //Play a round by comparing selections and based on them declare a winner
     playerSelection = playerSelection[0].toUpperCase() + playerSelection.slice(1).toLowerCase();
     let result;
-    console.log(playerSelection);
-    console.log(computerSelection);
+    console.log(`Player: ${playerSelection}`);
+    console.log(`Computer: ${computerSelection}`);
     if( playerSelection === computerSelection ) {
        console.log("It's a tie!");  
-       result = playRound(prompt("It's a draw, new pick?"), getComputerChoice());
+       result = playRound(prompt("It's a draw, new pick?"), getComputerChoice());                   //If a draw is played, repeat the round
     }
     else if ( ( playerSelection === 'Rock' && computerSelection === 'Scissors' ) ||
               ( playerSelection === 'Paper' && computerSelection === 'Rock' ) ||
