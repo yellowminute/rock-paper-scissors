@@ -10,7 +10,8 @@ function playRound (playerSelection, computerSelection) {               //Play a
     console.log(playerSelection);
     console.log(computerSelection);
     if( playerSelection === computerSelection ) {
-        result = "It's a tie!";
+       console.log("It's a tie!");  
+       result = playRound(prompt("It's a draw, new pick?"), getComputerChoice());
     }
     else if ( ( playerSelection === 'Rock' && computerSelection === 'Scissors' ) ||
               ( playerSelection === 'Paper' && computerSelection === 'Rock' ) ||
