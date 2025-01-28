@@ -11,4 +11,17 @@ function getComputerChoice () {
     }
 }
 
+function getHumanChoice () {
+    while(true){
+        let humanChoice = window.prompt("Pick one: rock, paper or scissors!");
+        if(humanChoice.toLowerCase() === "rock" || humanChoice.toLowerCase() === "paper" || humanChoice.toLowerCase() === "scissors"){
+            return humanChoice;
+        } 
+        alert("Invalid choice!");
+  
+    }
+     
+}
+
 console.log(getComputerChoice());
+console.log(getHumanChoice());
