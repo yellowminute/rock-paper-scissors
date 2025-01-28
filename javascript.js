@@ -1,6 +1,5 @@
-function getComputerChoice () {
+function getComputerChoice() {
     let computerChoice = Math.floor(Math.random()*3)
-    console.log(computerChoice);
     switch (computerChoice) {
         case 0: 
         return "rock";
@@ -11,7 +10,7 @@ function getComputerChoice () {
     }
 }
 
-function getHumanChoice () {
+function getHumanChoice() {
     while(true){
         let humanChoice = window.prompt("Pick one: rock, paper or scissors!");
         if(humanChoice.toLowerCase() === "rock" || humanChoice.toLowerCase() === "paper" || humanChoice.toLowerCase() === "scissors"){
@@ -21,10 +20,7 @@ function getHumanChoice () {
     }
 }
 
-let humanScore = 0;
-let computerScore = 0;
-
-function playRound (humanChoice, computerChoice) {
+function playRound(humanChoice, computerChoice) {
     humanChoice = humanChoice.toLowerCase();
     if((humanChoice === "paper" && computerChoice === "rock") || (humanChoice === "rock" && computerChoice === "scissors") || (humanChoice === "paper" && computerChoice === "rock")){
         humanScore++;
@@ -39,10 +35,21 @@ function playRound (humanChoice, computerChoice) {
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+function playGame() {
+    for(i=0; i < 5; i++){
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    }
+    if(humanScore > computerScore){
+        console.log("Congratulations! You're the winner!");
+    }
+    else{
+        console.log("Computer wins the game! Better luck next time!");
+    }
+}
 
-console.log(humanSelection);
-console.log(computerSelection);
+let humanScore = 0;
+let computerScore = 0;
 
-playRound(humanSelection, computerSelection);
+playGame();
