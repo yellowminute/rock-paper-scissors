@@ -36,11 +36,11 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function playGame() {
-    for(i=0; i < 5; i++){
+    // for(i=0; i < 5; i++){
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
-    }
+    // }
     if(humanScore > computerScore){
         console.log("Congratulations! You're the winner!");
     }
