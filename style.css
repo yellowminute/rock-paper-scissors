@@ -6,6 +6,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Barriecito, sans-serif;
+    text-shadow: rgb(112, 67, 0) 1px 0 10px;
     background-image:url("./img/rock-paper-scissor-bg.jpg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -13,7 +14,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    /* border: 1px solid red; */
 }
 
 .container-button {
@@ -21,24 +21,22 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    /* border: 1px solid yellow; */
-    
 }
 
 .container-header {
     flex: 1;
     color: whitesmoke;
     text-align: center;
-    /* border: 1px solid pink; */
 }
 
 button {
     margin-top: 200px;
     height: fit-content;
-    border: 1px solid black;
+    border: 3px solid black;
     border-radius: 10px;
     background-color: white;
     cursor: pointer;
+    box-shadow: rgb(112, 67, 0) 1px 0 10px;
 }
 
 p {
