@@ -11,42 +11,38 @@ function getComputerChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-    if((humanChoice === "paper" && computerChoice === "rock") || 
-    (humanChoice === "rock" && computerChoice === "scissors") || 
+    if( (humanChoice === "paper" && computerChoice === "rock") || 
+        (humanChoice === "rock" && computerChoice === "scissors") || 
         (humanChoice === "scissors" && computerChoice === "paper")){
             humanScore++;
-            divInfo.textContent = `You win! ${humanChoice} beats ${computerChoice}.`;
+            gameInfo.textContent = `You win! ${humanChoice} beats ${computerChoice}.`;
         }
-        else if(humanChoice === computerChoice) {
-            divInfo.textContent = `You both picked ${humanChoice}! It's a draw.`;
+    else if(humanChoice === computerChoice) {
+            gameInfo.textContent = `You both picked ${humanChoice}! It's a draw.`;
         }
-        else{
+    else{
             computerScore++;
-            divInfo.textContent = `You lose! ${computerChoice} beats ${humanChoice}.`;
+            gameInfo.textContent = `You lose! ${computerChoice} beats ${humanChoice}.`;
         }
-        container.appendChild(divInfo);
-    }
-    
+    gameScore.textContent = `Player: ${humanScore}\n Computer: ${computerScore}`;
+}
+
 function playGame() {
-    
     const buttons = document.querySelectorAll("button");
-    buttons.forEach((button => {
+    buttons.forEach((button) => {
         button.addEventListener("click", () => {
             let computerSelection = getComputerChoice();
             playRound(button.id, computerSelection);
         });
-    }));
-    // if(humanScore > computerScore){
-        //     console.log("Congratulations! You're the winner!");
-        // }
-        // else{
-            //     console.log("Computer wins the game! Better luck next time!");
-            // }
-        }
-        
+    });
+}
+
 let humanScore = 0;
 let computerScore = 0;
 const container = document.querySelector(".container-header");
-const divInfo = document.createElement("div");
-
+const gameInfo = document.createElement("div");
+const gameScore = document.createElement("div");
+gameScore.textContent = `Player: ${humanScore}\n Computer: ${computerScore}`;
+container.appendChild(gameInfo);
+container.appendChild(gameScore);
 playGame();
