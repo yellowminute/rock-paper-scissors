@@ -13,7 +13,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .container-button {
@@ -21,7 +21,7 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border: 1px solid yellow;
+    /* border: 1px solid yellow; */
     
 }
 
@@ -29,7 +29,7 @@ body {
     flex: 1;
     color: whitesmoke;
     text-align: center;
-    border: 1px solid pink;
+    /* border: 1px solid pink; */
 }
 
 button {
@@ -38,10 +38,10 @@ button {
     border: 1px solid black;
     border-radius: 10px;
     background-color: white;
+    cursor: pointer;
 }
 
 p {
-    font-size: 18px;
+    font-size: 28px;
     font-weight: 800;
-
 }
