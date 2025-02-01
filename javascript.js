@@ -34,9 +34,10 @@ function playGame(event) {
         buttons.forEach((button) => {
             button.removeEventListener("click", playGame);
         });
-        computerScore === 5 ? gameInfo.textContent += "COMPUTER WINS THE GAME!" :
-        gameInfo.textContent += "CONGRATULATIONS!";
-    };
+        computerScore === 5 ? gameInfo.textContent += "\r\n COMPUTER WINS THE GAME!" :
+        gameInfo.textContent += "\r\n CONGRATULATIONS!";
+        container.appendChild(playAgain);
+   };
 }
 
 
@@ -51,8 +52,8 @@ buttons.forEach((button) => {
 const container = document.querySelector(".container-header");
 const gameInfo = document.createElement("div");
 const gameScore = document.createElement("div");
-gameScore.classList.add = ("gameScore");
-gameInfo.classList.add = ("gameInfo");
+gameScore.setAttribute("style", "white-space: pre-line; font-size: 28px; text-shadow: rgb(112, 67, 0) 1px 0 10px;");
+gameInfo.setAttribute("style", "white-space: pre-line; font-size: 24px; text-shadow: rgb(112, 67, 0) 1px 0 10px;");
 gameScore.textContent = `Player: ${humanScore}\r\n Computer: ${computerScore}`;
 container.appendChild(gameScore);
 container.appendChild(gameInfo);
