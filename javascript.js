@@ -24,25 +24,35 @@ function playRound(humanChoice, computerChoice) {
             computerScore++;
             gameInfo.textContent = `You lose! ${computerChoice} beats ${humanChoice}.`;
         }
-    gameScore.textContent = `Player: ${humanScore}\n Computer: ${computerScore}`;
+    gameScore.textContent = `Player: ${humanScore}\r\n Computer: ${computerScore}`;
 }
 
-function playGame() {
-    const buttons = document.querySelectorAll("button");
-    buttons.forEach((button) => {
-        button.addEventListener("click", () => {
-            let computerSelection = getComputerChoice();
-            playRound(button.id, computerSelection);
+function playGame(event) {
+    let computerSelection = getComputerChoice();
+    playRound(event.currentTarget.id, computerSelection);
+    if(computerScore === 5 || humanScore === 5){
+        buttons.forEach((button) => {
+            button.removeEventListener("click", playGame);
         });
-    });
+        computerScore === 5 ? gameInfo.textContent += "COMPUTER WINS THE GAME!" :
+        gameInfo.textContent += "CONGRATULATIONS!";
+    };
 }
+
+
+
 
 let humanScore = 0;
 let computerScore = 0;
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+    button.addEventListener("click", playGame);                      
+});
 const container = document.querySelector(".container-header");
 const gameInfo = document.createElement("div");
 const gameScore = document.createElement("div");
-gameScore.textContent = `Player: ${humanScore}\n Computer: ${computerScore}`;
-container.appendChild(gameInfo);
+gameScore.classList.add = ("gameScore");
+gameInfo.classList.add = ("gameInfo");
+gameScore.textContent = `Player: ${humanScore}\r\n Computer: ${computerScore}`;
 container.appendChild(gameScore);
-playGame();
+container.appendChild(gameInfo);
